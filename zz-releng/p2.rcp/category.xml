@@ -6,10 +6,10 @@
       </description>
    </category-def>
    <!-- TODO: -->
-   <!-- <bundle id="org.toxsoft.skf.ggprefs.???"/> -->
+   <bundle id="org.toxsoft.skf.ggprefs.gui"/>
 
    <!-- sources -->
    <!-- TODO: -->
-   <!-- <bundle id="org.toxsoft.skf.ggprefs.???.source"/> -->
+   <bundle id="org.toxsoft.skf.ggprefs.gui.source"/>
 
 </site>

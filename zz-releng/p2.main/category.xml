@@ -6,10 +6,8 @@
       </description>
    </category-def>
    <bundle id="org.toxsoft.skf.ggprefs.lib"/>
-   <bundle id="org.toxsoft.skf.ggprefs.gui"/>
 
    <!-- sources -->
    <bundle id="org.toxsoft.skf.ggprefs.lib.source"/>
-   <bundle id="org.toxsoft.skf.ggprefs.gui.source"/>
 
 </site>
