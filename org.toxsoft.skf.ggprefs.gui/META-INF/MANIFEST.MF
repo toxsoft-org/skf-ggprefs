@@ -5,7 +5,8 @@ Bundle-SymbolicName: org.toxsoft.skf.ggprefs.gui
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.toxsoft.skf.ggprefs.gui.Activator
 Bundle-Vendor: toxsoft.org
-Require-Bundle: javax.inject,
+Require-Bundle: jakarta.inject.jakarta.inject-api,
+ jakarta.annotation-api,
  org.eclipse.core.runtime,
  org.eclipse.ui;resolution:=optional,
  org.eclipse.rap.ui;resolution:=optional,
@@ -18,7 +19,7 @@ Require-Bundle: javax.inject,
  org.toxsoft.core.tsgui,
  org.toxsoft.uskat.core,
  org.toxsoft.skf.ggprefs.lib
-Bundle-RequiredExecutionEnvironment: JavaSE-17
+Bundle-RequiredExecutionEnvironment: JavaSE-21
 Automatic-Module-Name: org.toxsoft.skf.ggprefs.gui
 Bundle-ActivationPolicy: lazy
 Export-Package: org.toxsoft.skf.ggprefs.gui
