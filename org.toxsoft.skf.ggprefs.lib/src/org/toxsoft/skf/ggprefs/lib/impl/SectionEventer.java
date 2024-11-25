@@ -1,20 +1,16 @@
 package org.toxsoft.skf.ggprefs.lib.impl;
 
 import org.toxsoft.core.tslib.coll.*;
-import org.toxsoft.core.tslib.coll.impl.ElemArrayList;
-import org.toxsoft.core.tslib.coll.impl.ElemMap;
-import org.toxsoft.core.tslib.coll.primtypes.IStringList;
-import org.toxsoft.core.tslib.coll.primtypes.IStringListEdit;
-import org.toxsoft.core.tslib.coll.primtypes.impl.StringArrayList;
+import org.toxsoft.core.tslib.coll.impl.*;
+import org.toxsoft.core.tslib.coll.primtypes.*;
+import org.toxsoft.core.tslib.coll.primtypes.impl.*;
 import org.toxsoft.core.tslib.gw.gwid.*;
-import org.toxsoft.core.tslib.gw.skid.Skid;
-import org.toxsoft.core.tslib.utils.errors.TsIllegalArgumentRtException;
-import org.toxsoft.core.tslib.utils.errors.TsNullArgumentRtException;
-import org.toxsoft.core.tslib.utils.logs.impl.LoggerUtils;
+import org.toxsoft.core.tslib.gw.skid.*;
+import org.toxsoft.core.tslib.utils.errors.*;
+import org.toxsoft.core.tslib.utils.logs.impl.*;
 import org.toxsoft.skf.ggprefs.lib.*;
-import org.toxsoft.uskat.core.ISkCoreApi;
-import org.toxsoft.uskat.core.api.sysdescr.ISkClassHierarchyExplorer;
-import org.toxsoft.uskat.core.api.sysdescr.ISkSysdescr;
+import org.toxsoft.uskat.core.*;
+import org.toxsoft.uskat.core.api.sysdescr.*;
 
 /**
  * Реализация евентера {@link IGuiGwPrefsSectionEventer}.
@@ -301,6 +297,11 @@ class SectionEventer
 
   void clearListeners() {
     objListeners.clear();
+  }
+
+  @Override
+  public void resumeFiringWithCounterReset( boolean aFireDelayed ) {
+    // TODO Auto-generated method stub
   }
 
 }
