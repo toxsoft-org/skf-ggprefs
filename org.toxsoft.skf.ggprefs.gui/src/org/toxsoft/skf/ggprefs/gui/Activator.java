@@ -5,7 +5,7 @@ import org.toxsoft.core.tsgui.mws.bases.MwsActivator;
 /**
  * Активатор плагина.
  *
- * @author goga
+ * @author hazard157
  */
 public class Activator
     extends MwsActivator {

@@ -35,7 +35,7 @@ import org.toxsoft.core.tslib.gw.skid.Skid;
  * слушателем.</li>
  * </ul>
  *
- * @author goga
+ * @author hazard157
  */
 public interface IGuiGwPrefsSectionEventer
     extends ITsPausabeEventsProducer {

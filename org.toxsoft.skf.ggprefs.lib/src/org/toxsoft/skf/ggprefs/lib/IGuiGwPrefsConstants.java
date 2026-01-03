@@ -66,7 +66,7 @@ import org.toxsoft.core.tslib.gw.skid.Skid;
  * {GuiGwPrefsUtils}.</li>
  * </ul>
  *
- * @author goga
+ * @author hazard157
  */
 public interface IGuiGwPrefsConstants {
 

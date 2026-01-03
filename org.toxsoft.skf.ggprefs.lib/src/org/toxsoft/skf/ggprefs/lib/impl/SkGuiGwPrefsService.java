@@ -29,7 +29,7 @@ import org.toxsoft.uskat.core.impl.dto.DtoObject;
 /**
  * Реализация {@link ISkGuiGwPrefsService}.
  *
- * @author goga
+ * @author hazard157
  */
 public class SkGuiGwPrefsService
     extends AbstractSkService

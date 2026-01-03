@@ -9,7 +9,7 @@ import org.toxsoft.uskat.core.api.ISkService;
 /**
  * Служба поддержки настроек для GUI приложения, связанные с предметной областью.
  *
- * @author goga
+ * @author hazard157
  */
 public interface ISkGuiGwPrefsService
     extends ISkService {

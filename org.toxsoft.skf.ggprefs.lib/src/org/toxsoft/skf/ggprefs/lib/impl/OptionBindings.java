@@ -1,22 +1,20 @@
 package org.toxsoft.skf.ggprefs.lib.impl;
 
-import org.toxsoft.core.tslib.av.metainfo.IDataDef;
-import org.toxsoft.core.tslib.bricks.strid.coll.IStridablesList;
-import org.toxsoft.core.tslib.bricks.strid.coll.IStridablesListEdit;
-import org.toxsoft.core.tslib.bricks.strid.coll.impl.StridablesList;
-import org.toxsoft.core.tslib.coll.primtypes.IStringMapEdit;
-import org.toxsoft.core.tslib.coll.primtypes.impl.StringMap;
-import org.toxsoft.core.tslib.gw.gwid.Gwid;
-import org.toxsoft.core.tslib.gw.skid.Skid;
-import org.toxsoft.core.tslib.utils.errors.TsItemAlreadyExistsRtException;
-import org.toxsoft.core.tslib.utils.errors.TsNullArgumentRtException;
-import org.toxsoft.uskat.core.ISkCoreApi;
-import org.toxsoft.uskat.core.api.sysdescr.ISkSysdescr;
+import org.toxsoft.core.tslib.av.metainfo.*;
+import org.toxsoft.core.tslib.bricks.strid.coll.*;
+import org.toxsoft.core.tslib.bricks.strid.coll.impl.*;
+import org.toxsoft.core.tslib.coll.primtypes.*;
+import org.toxsoft.core.tslib.coll.primtypes.impl.*;
+import org.toxsoft.core.tslib.gw.gwid.*;
+import org.toxsoft.core.tslib.gw.skid.*;
+import org.toxsoft.core.tslib.utils.errors.*;
+import org.toxsoft.uskat.core.*;
+import org.toxsoft.uskat.core.api.sysdescr.*;
 
 /**
  * Служебный класс обеспечения привязки опции к сущностям зеленого мира.
  *
- * @author goga
+ * @author hazard157
  */
 class OptionBindings {
 
@@ -48,7 +46,7 @@ class OptionBindings {
     // }
 
     // строковое представление гвида
-    String gwidStr = aGwid.asString();
+    String gwidStr = aGwid.canonicalString();
 
     // TsItemAlreadyExistsRtException.checkTrue( sectOptionsDefs.hasKey( gwidStr ),
     // "Options Defs have already bound whith gwid %s", gwidStr ); //$NON-NLS-1$
@@ -88,8 +86,8 @@ class OptionBindings {
     // сначала проверяем наличие опций для объекта
     Gwid objGwid = Gwid.createObj( aObjSkid );
 
-    if( sectOptionsDefs.hasKey( objGwid.asString() ) ) {
-      return sectOptionsDefs.getByKey( objGwid.asString() );
+    if( sectOptionsDefs.hasKey( objGwid.canonicalString() ) ) {
+      return sectOptionsDefs.getByKey( objGwid.canonicalString() );
     }
 
     // если для объекта опции не найдены - искать для класса и в супер-классах

@@ -1,11 +1,11 @@
 package org.toxsoft.skf.ggprefs.lib;
 
-import org.toxsoft.core.tslib.bricks.strid.IStridableParameterized;
+import org.toxsoft.core.tslib.bricks.strid.*;
 
 /**
- * Описание раздела {@link IGuiGwPrefsSection}.
+ * {@link IGuiGwPrefsSection} section decription.
  *
- * @author goga
+ * @author hazard157
  */
 public interface IDpuGuiGwPrefsSectionDef
     extends IStridableParameterized {

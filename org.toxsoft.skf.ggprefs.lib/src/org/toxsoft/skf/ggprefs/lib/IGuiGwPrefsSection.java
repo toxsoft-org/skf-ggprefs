@@ -15,7 +15,7 @@ import org.toxsoft.core.tslib.utils.errors.*;
  * <p>
  * Ссылка на этот раздел находится в контексте приложения.
  *
- * @author goga
+ * @author hazard157
  */
 public interface IGuiGwPrefsSection
     extends IStridableParameterized {

@@ -15,7 +15,7 @@ import org.toxsoft.uskat.core.api.sysdescr.*;
 /**
  * Реализация евентера {@link IGuiGwPrefsSectionEventer}.
  *
- * @author goga
+ * @author hazard157
  */
 class SectionEventer
     implements IGuiGwPrefsSectionEventer {
@@ -158,7 +158,7 @@ class SectionEventer
   }
 
   /**
-   * Проверят, что новsq GWID является более "общей", чем старый.
+   * Проверят, что новый GWID является более "общей", чем старый.
    *
    * @param aNewGwid {@link Gwid} - новый GWID
    * @param aOldGwid {@link Gwid} - старый GWID

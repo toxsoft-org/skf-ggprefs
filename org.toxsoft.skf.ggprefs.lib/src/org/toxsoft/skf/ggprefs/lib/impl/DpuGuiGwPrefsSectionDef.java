@@ -15,7 +15,7 @@ import org.toxsoft.skf.ggprefs.lib.IDpuGuiGwPrefsSectionDef;
 /**
  * Реализация {@link IDpuGuiGwPrefsSectionDef}.
  *
- * @author goga
+ * @author hazard157
  */
 public class DpuGuiGwPrefsSectionDef
     extends StridableParameterizedSer

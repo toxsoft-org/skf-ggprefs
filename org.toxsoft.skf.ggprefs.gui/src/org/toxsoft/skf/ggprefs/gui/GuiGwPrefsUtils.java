@@ -18,7 +18,7 @@ import org.toxsoft.uskat.core.connection.ISkConnection;
 /**
  * Вспомогательные методы для редактирования настроек GUI.
  *
- * @author goga
+ * @author hazard157
  */
 public class GuiGwPrefsUtils {
 

@@ -29,7 +29,7 @@ import org.toxsoft.uskat.core.impl.SkCoreApi;
 /**
  * Внутрипакетная реализация {@link IGuiGwPrefsSection}.
  *
- * @author goga
+ * @author hazard157
  */
 class GuiGwPrefsSection
     implements IGuiGwPrefsSection, ICloseable {

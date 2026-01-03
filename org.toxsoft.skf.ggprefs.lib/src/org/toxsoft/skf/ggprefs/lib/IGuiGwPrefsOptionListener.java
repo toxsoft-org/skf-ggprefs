@@ -5,7 +5,7 @@ import org.toxsoft.core.tslib.gw.skid.Skid;
 /**
  * Слушатель изменений одной опции конкретного объекта.
  *
- * @author goga
+ * @author hazard157
  */
 public interface IGuiGwPrefsOptionListener {
 
