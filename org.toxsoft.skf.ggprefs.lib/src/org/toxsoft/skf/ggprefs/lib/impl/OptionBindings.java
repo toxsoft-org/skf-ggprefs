@@ -52,23 +52,25 @@ class OptionBindings {
     // "Options Defs have already bound whith gwid %s", gwidStr ); //$NON-NLS-1$
 
     // Проверка на наличие данных опций в списках зарегистрированных
-    boolean alreadyExist = false;
-    StringBuilder alreadyExistOptDefIds = new StringBuilder();
-    for( String existedGwidStr : sectOptionsDefs.keys() ) {
-      IStridablesList<IDataDef> opDefs = sectOptionsDefs.getByKey( existedGwidStr );
-      for( IDataDef aOpDef : aOpDefs ) {
-        boolean opDefAlreadyExist = opDefs.hasKey( aOpDef.id() );
-        if( opDefAlreadyExist ) {
-          alreadyExistOptDefIds.append( aOpDef.id() );
-          alreadyExistOptDefIds.append( ", " ); //$NON-NLS-1$
-        }
-
-        alreadyExist = alreadyExist || opDefAlreadyExist;
-      }
-    }
-
-    TsItemAlreadyExistsRtException.checkTrue( alreadyExist, "Option Defs: %s - have already bound whith gwid %s", //$NON-NLS-1$
-        alreadyExistOptDefIds.toString(), gwidStr );
+    // dima отключена 2026.03.24
+    // boolean alreadyExist = false;
+    // StringBuilder alreadyExistOptDefIds = new StringBuilder();
+    // for( String existedGwidStr : sectOptionsDefs.keys() ) {
+    // IStridablesList<IDataDef> opDefs = sectOptionsDefs.getByKey( existedGwidStr );
+    // for( IDataDef aOpDef : aOpDefs ) {
+    // boolean opDefAlreadyExist = opDefs.hasKey( aOpDef.id() );
+    // if( opDefAlreadyExist ) {
+    // alreadyExistOptDefIds.append( aOpDef.id() );
+    // alreadyExistOptDefIds.append( ", " ); //$NON-NLS-1$
+    // }
+    //
+    // alreadyExist = alreadyExist || opDefAlreadyExist;
+    // }
+    // }
+    //
+    // TsItemAlreadyExistsRtException.checkTrue( alreadyExist, "Option Defs: %s - have already bound whith gwid %s",
+    // //$NON-NLS-1$
+    // alreadyExistOptDefIds.toString(), gwidStr );
 
     // для данного гвида просто добавить определения опций
     if( !sectOptionsDefs.hasKey( gwidStr ) ) {
