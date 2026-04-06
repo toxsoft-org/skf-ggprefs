@@ -60,7 +60,7 @@ class SectionEventer
                 break;
               }
               catch( Exception ex ) {
-                LoggerUtils.errorLogger().error( ex );
+                LoggerUtils.error( ex );
               }
             }
           }
@@ -77,7 +77,7 @@ class SectionEventer
           l.onGuiGwPrefsBundleChanged( source, aObjSkid );
         }
         catch( Exception ex ) {
-          LoggerUtils.errorLogger().error( ex );
+          LoggerUtils.error( ex );
         }
       }
     }
