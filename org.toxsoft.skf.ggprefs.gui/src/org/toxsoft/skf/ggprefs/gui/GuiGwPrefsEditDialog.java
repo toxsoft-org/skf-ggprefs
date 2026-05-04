@@ -1,37 +1,31 @@
 package org.toxsoft.skf.ggprefs.gui;
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.SashForm;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.*;
+import org.eclipse.swt.custom.*;
+import org.eclipse.swt.events.*;
 import org.eclipse.swt.widgets.*;
-import org.toxsoft.core.tsgui.bricks.ctx.ITsGuiContext;
-import org.toxsoft.core.tsgui.bricks.ctx.impl.TsGuiContext;
+import org.toxsoft.core.tsgui.bricks.ctx.*;
+import org.toxsoft.core.tsgui.bricks.ctx.impl.*;
 import org.toxsoft.core.tsgui.dialogs.datarec.*;
-import org.toxsoft.core.tsgui.panels.opsedit.IOptionSetPanel;
-import org.toxsoft.core.tsgui.panels.opsedit.impl.OptionSetPanel;
-import org.toxsoft.core.tsgui.utils.layout.BorderLayout;
-import org.toxsoft.core.tslib.av.IAtomicValue;
-import org.toxsoft.core.tslib.av.metainfo.IDataDef;
-import org.toxsoft.core.tslib.av.opset.IOptionSet;
-import org.toxsoft.core.tslib.av.opset.IOptionSetEdit;
-import org.toxsoft.core.tslib.av.opset.impl.OptionSet;
-import org.toxsoft.core.tslib.bricks.events.change.IGenericChangeListener;
-import org.toxsoft.core.tslib.bricks.strid.coll.IStridablesList;
-import org.toxsoft.core.tslib.bricks.strid.coll.IStridablesListEdit;
-import org.toxsoft.core.tslib.bricks.strid.coll.impl.StridablesList;
+import org.toxsoft.core.tsgui.panels.opsedit.*;
+import org.toxsoft.core.tsgui.panels.opsedit.impl.*;
+import org.toxsoft.core.tsgui.utils.layout.*;
+import org.toxsoft.core.tslib.av.*;
+import org.toxsoft.core.tslib.av.metainfo.*;
+import org.toxsoft.core.tslib.av.opset.*;
+import org.toxsoft.core.tslib.av.opset.impl.*;
+import org.toxsoft.core.tslib.bricks.events.change.*;
+import org.toxsoft.core.tslib.bricks.strid.coll.*;
+import org.toxsoft.core.tslib.bricks.strid.coll.impl.*;
 import org.toxsoft.core.tslib.coll.*;
-import org.toxsoft.core.tslib.coll.impl.ElemArrayList;
-import org.toxsoft.core.tslib.coll.impl.ElemMap;
-import org.toxsoft.core.tslib.coll.primtypes.IStringMap;
-import org.toxsoft.core.tslib.coll.primtypes.IStringMapEdit;
-import org.toxsoft.core.tslib.coll.primtypes.impl.StringMap;
+import org.toxsoft.core.tslib.coll.impl.*;
+import org.toxsoft.core.tslib.coll.primtypes.*;
+import org.toxsoft.core.tslib.coll.primtypes.impl.*;
 import org.toxsoft.core.tslib.gw.skid.*;
-import org.toxsoft.core.tslib.utils.errors.TsNullArgumentRtException;
-import org.toxsoft.skf.ggprefs.lib.IGuiGwPrefsConstants;
-import org.toxsoft.skf.ggprefs.lib.IGuiGwPrefsSection;
-import org.toxsoft.uskat.core.api.objserv.ISkObjectService;
-import org.toxsoft.uskat.core.connection.ISkConnection;
+import org.toxsoft.core.tslib.utils.errors.*;
+import org.toxsoft.skf.ggprefs.lib.*;
+import org.toxsoft.uskat.core.api.objserv.*;
+import org.toxsoft.uskat.core.connection.*;
 
 /**
  * Панель диалога редактирования настроечных опций объектов
@@ -109,6 +103,8 @@ public class GuiGwPrefsEditDialog
    */
   private final IListEdit<IOptionSetPanel> groupEditors = new ElemArrayList<>();
 
+  private SashForm sfMain;
+
   /**
    * Конструктор.
    *
@@ -131,11 +127,11 @@ public class GuiGwPrefsEditDialog
     connection = aSkConn;
     groupDefs = aGroupDefs;
 
-    SashForm sfMain = new SashForm( this, SWT.HORIZONTAL );
+    sfMain = new SashForm( this, SWT.HORIZONTAL );
     sfMain.setLayoutData( BorderLayout.CENTER );
 
     // панель списка объектов
-    objsPanel = new List( sfMain, SWT.SINGLE | SWT.BORDER );
+    objsPanel = new List( sfMain, SWT.SINGLE | SWT.BORDER | SWT.V_SCROLL );
     objsPanel.setLayoutData( BorderLayout.WEST );
     objsPanel.addSelectionListener( objSelectionChangeListener );
 
@@ -160,7 +156,8 @@ public class GuiGwPrefsEditDialog
     // инициализация панели списка объектов - загрузка отображаемых имен объектов
     for( int i = 0; i < objsList.size(); i++ ) {
       Skid b = objsList.get( i );
-      String s = objService.get( b ).readableName();
+      ISkObject obj = objService.get( b );
+      String s = obj.readableName();
 
       objsPanel.add( s );
     }
@@ -171,7 +168,7 @@ public class GuiGwPrefsEditDialog
     // после инициализации покажем редакторы групп опций первого объекта
     showObjectOptions( objsList.first() );
 
-    this.layout( true, true );
+    // this.layout( true, true );
   }
 
   @Override
@@ -235,13 +232,14 @@ public class GuiGwPrefsEditDialog
       groupEditors.get( i ).getControl().dispose();
     }
     groupEditors.clear();
-    for( int i = 0; i < groupEditorsFolder.getItemCount(); i++ ) {
-      groupEditorsFolder.getItem( i ).dispose();
-    }
+    // dima 21/04/26 отключил удаление из-за проблем с обновлением. Новая панель не видна пока не сделаешь ресайз
+    // панели.
+    // for( int i = 0; i < groupEditorsFolder.getItemCount(); i++ ) {
+    // groupEditorsFolder.getItem( i ).dispose();
+    // }
     if( aObj == null ) {
       return;
     }
-
     // описание всех опций объекта
     IStridablesList<IDataDef> optionDefs = guiGwSection.listOptionDefs( aObj );
     // значения всех опций объекта

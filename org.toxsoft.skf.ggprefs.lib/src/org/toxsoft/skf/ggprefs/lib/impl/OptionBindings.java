@@ -109,4 +109,28 @@ class OptionBindings {
     return result;
   }
 
+  // dima 17.04.27 for debug
+  public IStridablesList<IDataDef> listOptionDefs( String aCanonicalString ) {
+
+    if( sectOptionsDefs.hasKey( aCanonicalString ) ) {
+      return sectOptionsDefs.getByKey( aCanonicalString );
+    }
+
+    // если для объекта опции не найдены - искать для класса и в супер-классах
+    IStridablesListEdit<IDataDef> result = new StridablesList<>();
+
+    // перебираем все классы, для которых связаны опции - ищем сам класс сущности или его супер-классы
+    for( String gwidStr : sectOptionsDefs.keys() ) {
+      Gwid gwid = Gwid.of( gwidStr );
+      if( gwid.isAbstract() ) {
+        if( cim.hierarchy().isAssignableFrom( gwid.classId(), Gwid.of( aCanonicalString ).classId() ) ) {
+          IStridablesList<IDataDef> gwidOpts = sectOptionsDefs.getByKey( gwidStr );
+          result.addAll( gwidOpts );
+        }
+      }
+    }
+
+    return result;
+  }
+
 }

@@ -3,35 +3,32 @@ package org.toxsoft.skf.ggprefs.lib.impl;
 import static org.toxsoft.skf.ggprefs.lib.impl.IServiceInternalConstants.*;
 import static org.toxsoft.skf.ggprefs.lib.impl.ISkResources.*;
 
-import java.util.Objects;
+import java.util.*;
 
-import org.toxsoft.core.tslib.av.IAtomicValue;
-import org.toxsoft.core.tslib.av.errors.AvTypeCastRtException;
-import org.toxsoft.core.tslib.av.metainfo.IDataDef;
-import org.toxsoft.core.tslib.av.opset.IOptionSet;
-import org.toxsoft.core.tslib.av.opset.IOptionSetEdit;
-import org.toxsoft.core.tslib.av.opset.impl.OptionSet;
-import org.toxsoft.core.tslib.av.opset.impl.OptionSetKeeper;
-import org.toxsoft.core.tslib.bricks.strid.coll.IStridablesList;
-import org.toxsoft.core.tslib.bricks.strid.more.IdChain;
-import org.toxsoft.core.tslib.coll.primtypes.IStringListEdit;
-import org.toxsoft.core.tslib.coll.primtypes.impl.StringArrayList;
-import org.toxsoft.core.tslib.gw.gwid.Gwid;
-import org.toxsoft.core.tslib.gw.skid.Skid;
-import org.toxsoft.core.tslib.utils.ICloseable;
-import org.toxsoft.core.tslib.utils.errors.TsNullArgumentRtException;
+import org.toxsoft.core.tslib.av.*;
+import org.toxsoft.core.tslib.av.errors.*;
+import org.toxsoft.core.tslib.av.metainfo.*;
+import org.toxsoft.core.tslib.av.opset.*;
+import org.toxsoft.core.tslib.av.opset.impl.*;
+import org.toxsoft.core.tslib.bricks.strid.coll.*;
+import org.toxsoft.core.tslib.bricks.strid.more.*;
+import org.toxsoft.core.tslib.coll.primtypes.*;
+import org.toxsoft.core.tslib.coll.primtypes.impl.*;
+import org.toxsoft.core.tslib.gw.gwid.*;
+import org.toxsoft.core.tslib.gw.skid.*;
+import org.toxsoft.core.tslib.utils.*;
+import org.toxsoft.core.tslib.utils.errors.*;
 import org.toxsoft.skf.ggprefs.lib.*;
-import org.toxsoft.uskat.core.api.objserv.ISkObject;
-import org.toxsoft.uskat.core.devapi.gwiddb.ISkGwidDbSection;
-import org.toxsoft.uskat.core.devapi.gwiddb.ISkGwidDbService;
-import org.toxsoft.uskat.core.impl.SkCoreApi;
+import org.toxsoft.uskat.core.api.objserv.*;
+import org.toxsoft.uskat.core.devapi.gwiddb.*;
+import org.toxsoft.uskat.core.impl.*;
 
 /**
  * Внутрипакетная реализация {@link IGuiGwPrefsSection}.
  *
  * @author hazard157
  */
-class GuiGwPrefsSection
+public class GuiGwPrefsSection
     implements IGuiGwPrefsSection, ICloseable {
 
   private final SkCoreApi      coreApi;
@@ -106,6 +103,10 @@ class GuiGwPrefsSection
   @Override
   public IStridablesList<IDataDef> listOptionDefs( Skid aObjSkid ) {
     return bindingsHolder.listOptionDefs( aObjSkid );
+  }
+
+  public IStridablesList<IDataDef> listOptionDefs( String aCanonicalString ) {
+    return bindingsHolder.listOptionDefs( aCanonicalString );
   }
 
   @Override
